@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
 
-    public Game game;
+    private Game game;
 
     @BeforeEach
     void setup() {

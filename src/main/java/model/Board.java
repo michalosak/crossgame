@@ -22,12 +22,8 @@ public class Board {
         return table;
     }
 
-    public boolean isDraw() {
 
-        return true;
-    }
-
-    public boolean checkWin() {
+    public boolean hasWon() {
 
         if (table[0][0].getContent() == table[0][1].getContent() && table[0][1].getContent() == table[0][2].getContent() && table[0][2].getContent() != Seed.EMPTY) {
             return true;
@@ -55,18 +51,5 @@ public class Board {
         }
 
         return false;
-    }
-
-    public boolean hasWon(Seed seed, Integer row, Integer col) throws IllegalArgumentException {
-
-        if (!table[row][col].getContent().equals(Seed.EMPTY)) throw new IllegalArgumentException("This field is not empty");
-
-        Cell cell = new Cell(row, col);
-        cell.setContent(seed);
-        table[row][col] = cell;
-
-        boolean hasWon = checkWin();
-
-        return hasWon;
     }
 }

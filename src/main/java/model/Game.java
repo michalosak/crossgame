@@ -7,9 +7,10 @@ import java.util.Random;
 public class Game {
 
     private Board board;
-    private GameState currentState;
-    private Seed currentPlayer;
 
+    private GameState currentState;
+
+    private Seed currentPlayer;
     public Game() {
 
     }
@@ -23,10 +24,19 @@ public class Game {
 
     public void updateGameState(Seed seed, Integer row, Integer col) {
         this.currentPlayer = seed;
+        if (!board.getTable()[row][col].getContent().equals(Seed.EMPTY)) throw new IllegalArgumentException("This field is not empty");
+
+        Cell cell = new Cell(row, col);
+        cell.setContent(seed);
+        board.getTable()[row][col] = cell;
     }
 
     public Board getBoard() {
         return board;
+    }
+
+    public void setCurrentState(GameState currentState) {
+        this.currentState = currentState;
     }
 
     public GameState getCurrentState() {
