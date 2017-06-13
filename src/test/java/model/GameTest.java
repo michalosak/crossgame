@@ -11,17 +11,24 @@ class GameTest {
 
     @BeforeEach
     void setup() {
-
+        this.game = new Game();
         this.game.initGame();
     }
 
     @Test
-    void testGetCurrentStateWinningCombinationReturnsEnumPlaying() {
+    void testGetCurrentStateReturnsEnumPlaying() {
 
         GameState expected = GameState.PLAYING;
         this.game.updateGameState(Seed.CROSS, 1, 1);
         assertEquals(expected, this.game.getCurrentState());
     }
 
+    @Test
+    void testChangePlayerFromCrossToNought() {
+        Seed expected = Seed.NOUGHT;
+        this.game.updateGameState(Seed.CROSS, 1,1);
+        this.game.changePlayer();
+        assertEquals(expected, this.game.getCurrentPlayer());
+    }
 
 }

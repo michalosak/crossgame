@@ -18,10 +18,11 @@ public class Game {
 
         this.board = new Board();
         this.board.initBoard();
+        this.randomInitialPlayer();
     }
 
     public void updateGameState(Seed seed, Integer row, Integer col) {
-
+        this.currentPlayer = seed;
     }
 
     public Board getBoard() {
@@ -40,14 +41,11 @@ public class Game {
         Random randomGenerator = new Random();
         int index = randomGenerator.nextInt(player.size());
         this.currentPlayer = player.get(index);
+        this.currentState = GameState.PLAYING;
     }
 
     public Seed getCurrentPlayer() {
         return currentPlayer;
-    }
-
-    public void setCurrentPlayer(Seed currentPlayer) {
-        this.currentPlayer = currentPlayer;
     }
 
     public void changePlayer() {

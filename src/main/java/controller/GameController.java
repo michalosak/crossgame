@@ -11,25 +11,32 @@ public class GameController {
 
         Game game = new Game();
         game.initGame();
-        game.randomInitialPlayer();
 
         Integer x;
         Integer y;
 
-        do {
-            Ui.clear();
-            Ui.printHeader("Crosses and Noughts Game");
-            Ui.printBoard(game.getBoard().getTable());
+        Ui.clear();
+        Ui.printHeader("Crosses and Noughts Game");
+        Ui.printBoard(game.getBoard().getTable());
+
+        while (game.getBoard().checkWin() != true) {
+
 
             try {
-                x = Ui.selectFromList(3, "Select x position: ");
-                y = Ui.selectFromList(3, "Select y position: ");
+                x = Ui.selectFromList(3, "Select y position: ");
+                y = Ui.selectFromList(3, "Select x position: ");
                 game.getBoard().hasWon(game.getCurrentPlayer(), x, y);
                 game.changePlayer();
             } catch (IllegalArgumentException e) {
                 Ui.printWarning(e.getMessage());
             }
 
-        } while (game.getCurrentState() != GameState.PLAYING);
+            Ui.clear();
+            Ui.printHeader("Crosses and Noughts Game");
+            Ui.printBoard(game.getBoard().getTable());
+
+
+        }
+        System.out.println("WIN!");
     }
 }

@@ -27,6 +27,36 @@ public class Board {
         return true;
     }
 
+    public boolean checkWin() {
+
+        if (table[0][0].getContent() == table[0][1].getContent() && table[0][1].getContent() == table[0][2].getContent() && table[0][2].getContent() != Seed.EMPTY) {
+            return true;
+        }
+        if (table[1][0].getContent() == table[1][1].getContent() && table[1][1].getContent() == table[1][2].getContent() && table[1][2].getContent() != Seed.EMPTY) {
+            return true;
+        }
+        if (table[2][0].getContent() == table[2][1].getContent() && table[2][1].getContent() == table[2][2].getContent() && table[2][2].getContent() != Seed.EMPTY) {
+            return true;
+        }
+        if (table[0][0].getContent() == table[1][0].getContent() && table[1][0].getContent() == table[2][0].getContent() && table[2][0].getContent() != Seed.EMPTY) {
+            return true;
+        }
+        if (table[0][1].getContent() == table[1][1].getContent() && table[1][1].getContent() == table[2][1].getContent() && table[2][1].getContent() != Seed.EMPTY) {
+            return true;
+        }
+        if (table[0][2].getContent() == table[1][2].getContent() && table[1][2].getContent() == table[2][2].getContent() && table[2][2].getContent() != Seed.EMPTY) {
+            return true;
+        }
+        if (table[0][0].getContent() == table[1][1].getContent() && table[1][1].getContent() == table[2][2].getContent() && table[2][2].getContent() != Seed.EMPTY) {
+            return true;
+        }
+        if (table[0][2].getContent() == table[1][1].getContent() && table[1][1].getContent() == table[2][0].getContent() && table[2][0].getContent() != Seed.EMPTY) {
+            return true;
+        }
+
+        return false;
+    }
+
     public boolean hasWon(Seed seed, Integer row, Integer col) throws IllegalArgumentException {
 
         if (!table[row][col].getContent().equals(Seed.EMPTY)) throw new IllegalArgumentException("This field is not empty");
@@ -35,6 +65,8 @@ public class Board {
         cell.setContent(seed);
         table[row][col] = cell;
 
-        return false;
+        boolean hasWon = checkWin();
+
+        return hasWon;
     }
 }
