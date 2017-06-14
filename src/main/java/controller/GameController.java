@@ -65,7 +65,6 @@ public class GameController {
             Ui.printHeader("Crosses and Noughts Game");
             Ui.printBoard(game.getBoard().getTable());
         }
-
     }
 }
 
