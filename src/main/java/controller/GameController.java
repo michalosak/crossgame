@@ -24,11 +24,11 @@ public class GameController {
 
 
             try {
-                x = Ui.selectFromList(3, "Select y position: ");
-                y = Ui.selectFromList(3, "Select x position: ");
+                game.changePlayer();
+                x = Ui.selectFromList(3, "Select y position for " + game.getCurrentPlayer() + ": ");
+                y = Ui.selectFromList(3, "Select x position: " + game.getCurrentPlayer() + ": ");
                 game.updateGameState(game.getCurrentPlayer(), x, y);
                 game.getBoard().hasWon();
-                game.changePlayer();
                 moveCounter += 1;
                 if(moveCounter == 9 && !game.getBoard().hasWon()) {
                     isDraw = true;
@@ -44,7 +44,7 @@ public class GameController {
 
 
         }
-        if(game.getBoard().hasWon()) System.out.println("WIN!");
+        if(game.getBoard().hasWon()) System.out.println("WIN! " + game.getCurrentPlayer());
         else System.out.println("Draw");
     }
 }
