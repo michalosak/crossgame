@@ -45,16 +45,19 @@ public class GameController {
                 game.changePlayer();
                 System.out.println("WIN! " + game.getCurrentPlayer());
                 GameController.playAgain(game);
+                moveCounter = 0;
 
             }
             if (moveCounter == 9 && !game.getBoard().hasWon()) {
                 System.out.println("Draw");
                 GameController.playAgain(game);
+                moveCounter = 0;
             }
         }
     }
 
     private static void playAgain(Game game) {
+
         String playOrnot = Ui.userInputString("Do you want to play again? (y/n): ");
         if (playOrnot.equals("y")) {
             Ui.clear();
