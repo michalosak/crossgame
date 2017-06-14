@@ -64,6 +64,7 @@ public class GameController {
             if (moveCounter == 9 && !game.getBoard().hasWon()) {
                 ui.printInformation("Draw");
                 this.playAgain();
+                isDraw = false;
                 moveCounter = 0;
             }
         }
