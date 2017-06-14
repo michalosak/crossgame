@@ -19,7 +19,7 @@ class GameTest {
     void testGetCurrentStateReturnsEnumPlaying() {
 
         GameState expected = GameState.PLAYING;
-        this.game.updateGameState(Seed.CROSS, 1, 1);
+        this.game.setCurrentState(GameState.PLAYING);
         assertEquals(expected, this.game.getCurrentState());
     }
 
