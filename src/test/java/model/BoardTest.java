@@ -2,8 +2,12 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.stubbing.Answer;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.when;
 
 
 class BoardTest {
@@ -33,24 +37,6 @@ class BoardTest {
         assertEquals(testTable.length, this.board.getTable().length);
     }
 
-//    @Test
-//    void testisDrawCombinationReturnsTrue() {
-//
-//        this.board.hasWon();
-//        this.board.hasWon();
-//        this.board.hasWon();
-//
-//        this.board.hasWon();
-//        this.board.hasWon();
-//        this.board.hasWon();
-//
-//        this.board.hasWon();
-//        this.board.hasWon();
-//        this.board.hasWon();
-//
-//        assertEquals(true, this.board.isDraw());
-//    }
-
     @Test
     void testHasWonWinningCombinationReturnsTrue() {
 
@@ -58,7 +44,6 @@ class BoardTest {
         this.game.updateGameState(Seed.CROSS, 1, 1);
         this.game.updateGameState(Seed.CROSS, 2, 2);
         this.board.hasWon();
-
         assertEquals(true,  this.board.hasWon());
     }
 

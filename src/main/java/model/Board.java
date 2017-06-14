@@ -25,28 +25,14 @@ public class Board {
 
     public boolean hasWon() {
 
-        if (table[0][0].getContent() == table[0][1].getContent() && table[0][1].getContent() == table[0][2].getContent() && table[0][2].getContent() != Seed.EMPTY) {
-            return true;
-        }
-        if (table[1][0].getContent() == table[1][1].getContent() && table[1][1].getContent() == table[1][2].getContent() && table[1][2].getContent() != Seed.EMPTY) {
-            return true;
-        }
-        if (table[2][0].getContent() == table[2][1].getContent() && table[2][1].getContent() == table[2][2].getContent() && table[2][2].getContent() != Seed.EMPTY) {
-            return true;
-        }
-        if (table[0][0].getContent() == table[1][0].getContent() && table[1][0].getContent() == table[2][0].getContent() && table[2][0].getContent() != Seed.EMPTY) {
-            return true;
-        }
-        if (table[0][1].getContent() == table[1][1].getContent() && table[1][1].getContent() == table[2][1].getContent() && table[2][1].getContent() != Seed.EMPTY) {
-            return true;
-        }
-        if (table[0][2].getContent() == table[1][2].getContent() && table[1][2].getContent() == table[2][2].getContent() && table[2][2].getContent() != Seed.EMPTY) {
-            return true;
-        }
-        if (table[0][0].getContent() == table[1][1].getContent() && table[1][1].getContent() == table[2][2].getContent() && table[2][2].getContent() != Seed.EMPTY) {
-            return true;
-        }
-        if (table[0][2].getContent() == table[1][1].getContent() && table[1][1].getContent() == table[2][0].getContent() && table[2][0].getContent() != Seed.EMPTY) {
+        if ((table[0][0].getContent() == table[0][1].getContent() && table[0][1].getContent() == table[0][2].getContent() && table[0][2].getContent() != Seed.EMPTY)
+        ||(table[1][0].getContent() == table[1][1].getContent() && table[1][1].getContent() == table[1][2].getContent() && table[1][2].getContent() != Seed.EMPTY)
+        ||(table[2][0].getContent() == table[2][1].getContent() && table[2][1].getContent() == table[2][2].getContent() && table[2][2].getContent() != Seed.EMPTY)
+        ||(table[0][0].getContent() == table[1][0].getContent() && table[1][0].getContent() == table[2][0].getContent() && table[2][0].getContent() != Seed.EMPTY)
+        ||(table[0][1].getContent() == table[1][1].getContent() && table[1][1].getContent() == table[2][1].getContent() && table[2][1].getContent() != Seed.EMPTY)
+        ||(table[0][2].getContent() == table[1][2].getContent() && table[1][2].getContent() == table[2][2].getContent() && table[2][2].getContent() != Seed.EMPTY)
+        ||(table[0][0].getContent() == table[1][1].getContent() && table[1][1].getContent() == table[2][2].getContent() && table[2][2].getContent() != Seed.EMPTY)
+        ||(table[0][2].getContent() == table[1][1].getContent() && table[1][1].getContent() == table[2][0].getContent() && table[2][0].getContent() != Seed.EMPTY)) {
             return true;
         }
 

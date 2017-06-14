@@ -54,7 +54,7 @@ public class GameController {
 
             if (game.getBoard().hasWon()) {
                 game.changePlayer();
-                System.out.println("WIN! " + game.getCurrentPlayer());
+                ui.printInformation("WIN! " + game.getCurrentPlayer());
                 if(game.getCurrentPlayer() == Seed.NOUGHT) game.setCurrentState(GameState.NOUGHT_WON);
                 else if(game.getCurrentPlayer() == Seed.CROSS) game.setCurrentState(GameState.CROSS_WON);
                 this.playAgain();
@@ -62,7 +62,7 @@ public class GameController {
 
             }
             if (moveCounter == 9 && !game.getBoard().hasWon()) {
-                System.out.println("Draw");
+                ui.printInformation("Draw");
                 this.playAgain();
                 moveCounter = 0;
             }
@@ -81,7 +81,7 @@ public class GameController {
         }
     }
 
-    private void displayTable() {
+    public void displayTable() {
 
         ui.clear();
         ui.printHeader("Crosses and Noughts Game");
