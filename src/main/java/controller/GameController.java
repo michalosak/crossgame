@@ -2,6 +2,7 @@ package controller;
 
 import model.Game;
 import model.GameState;
+import model.Seed;
 import model.Ui;
 
 public class GameController {
@@ -16,9 +17,7 @@ public class GameController {
         Integer x;
         Integer y;
 
-        Ui.clear();
-        Ui.printHeader("Crosses and Noughts Game");
-        Ui.printBoard(game.getBoard().getTable());
+        GameController.displayTable(game);
 
         while (!game.getBoard().hasWon() && !isDraw) {
 
@@ -37,13 +36,13 @@ public class GameController {
                 Ui.printWarning(e.getMessage());
             }
 
-            Ui.clear();
-            Ui.printHeader("Crosses and Noughts Game");
-            Ui.printBoard(game.getBoard().getTable());
+            GameController.displayTable(game);
 
             if (game.getBoard().hasWon()) {
                 game.changePlayer();
                 System.out.println("WIN! " + game.getCurrentPlayer());
+                if(game.getCurrentPlayer() == Seed.NOUGHT) game.setCurrentState(GameState.NOUGHT_WON);
+                else if(game.getCurrentPlayer() == Seed.CROSS) game.setCurrentState(GameState.CROSS_WON);
                 GameController.playAgain(game);
                 moveCounter = 0;
 
@@ -65,6 +64,12 @@ public class GameController {
             Ui.printHeader("Crosses and Noughts Game");
             Ui.printBoard(game.getBoard().getTable());
         }
+    }
+
+    private static void displayTable(Game game) {
+        Ui.clear();
+        Ui.printHeader("Crosses and Noughts Game");
+        Ui.printBoard(game.getBoard().getTable());
     }
 }
 
